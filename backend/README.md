@@ -131,12 +131,18 @@ The following errors will be reported:
 - Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs.
 - example: `curl http://localhost:5000/api/v1/categories -H "Content-Type: application/json"`
 ```
-{'1' : "Science",
-'2' : "Art",
-'3' : "Geography",
-'4' : "History",
-'5' : "Entertainment",
-'6' : "Sports"}
+{
+    "categories": {
+        "1": "Science",
+        "2": "Art",
+        "3": "Geography",
+        "4": "History",
+        "5": "Entertainment",
+        "6": "Sports"
+    },
+    "success": true,
+    "total_categories": 6
+}
 ```
 
 #### 4.3.2. GET `/questions`
@@ -153,91 +159,91 @@ The following errors will be reported:
         - int:`category`: question category id.
     - `categories`: a dictionary that contains objects of id: category_string key:value pairs.
     - int:`total_questions`: an integer that contains total questions
-- example: `curl http://localhost:5000/api/v1/categories -H "Content-Type: application/json"`
+- example: `curl http://localhost:5000/api/v1/questions -H "Content-Type: application/json"`
 ```
 {
-  "categories": {
-    "1": "Science", 
-    "2": "Art", 
-    "3": "Geography", 
-    "4": "History", 
-    "5": "Entertainment", 
-    "6": "Sports"
-  }, 
-  "questions": [
-    {
-      "answer": "Apollo 13", 
-      "category": 5, 
-      "difficulty": 4, 
-      "id": 2, 
-      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
-    }, 
-    {
-      "answer": "Tom Cruise", 
-      "category": 5, 
-      "difficulty": 4, 
-      "id": 4, 
-      "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
-    }, 
-    {
-      "answer": "Maya Angelou", 
-      "category": 4, 
-      "difficulty": 2, 
-      "id": 5, 
-      "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
-    }, 
-    {
-      "answer": "Edward Scissorhands", 
-      "category": 5, 
-      "difficulty": 3, 
-      "id": 6, 
-      "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
-    }, 
-    {
-      "answer": "Muhammad Ali", 
-      "category": 4, 
-      "difficulty": 1, 
-      "id": 9, 
-      "question": "What boxer's original name is Cassius Clay?"
-    }, 
-    {
-      "answer": "Brazil", 
-      "category": 6, 
-      "difficulty": 3, 
-      "id": 10, 
-      "question": "Which is the only team to play in every soccer World Cup tournament?"
-    }, 
-    {
-      "answer": "Uruguay", 
-      "category": 6, 
-      "difficulty": 4, 
-      "id": 11, 
-      "question": "Which country won the first ever soccer World Cup in 1930?"
-    }, 
-    {
-      "answer": "George Washington Carver", 
-      "category": 4, 
-      "difficulty": 2, 
-      "id": 12, 
-      "question": "Who invented Peanut Butter?"
-    }, 
-    {
-      "answer": "Lake Victoria", 
-      "category": 3, 
-      "difficulty": 2, 
-      "id": 13, 
-      "question": "What is the largest lake in Africa?"
-    }, 
-    {
-      "answer": "The Palace of Versailles", 
-      "category": 3, 
-      "difficulty": 3, 
-      "id": 14, 
-      "question": "In which royal palace would you find the Hall of Mirrors?"
-    }
-  ], 
-  "success": true, 
-  "total_questions": 20
+    "categories": {
+        "1": "Science",
+        "2": "Art",
+        "3": "Geography",
+        "4": "History",
+        "5": "Entertainment",
+        "6": "Sports"
+    },
+    "questions": [
+        {
+            "answer": "Apollo 13",
+            "category": 5,
+            "difficulty": 4,
+            "id": 2,
+            "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
+        },
+        {
+            "answer": "Tom Cruise",
+            "category": 5,
+            "difficulty": 4,
+            "id": 4,
+            "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
+        },
+        {
+            "answer": "Maya Angelou",
+            "category": 4,
+            "difficulty": 2,
+            "id": 5,
+            "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+        },
+        {
+            "answer": "Edward Scissorhands",
+            "category": 5,
+            "difficulty": 3,
+            "id": 6,
+            "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
+        },
+        {
+            "answer": "Muhammad Ali",
+            "category": 4,
+            "difficulty": 1,
+            "id": 9,
+            "question": "What boxer's original name is Cassius Clay?"
+        },
+        {
+            "answer": "Brazil",
+            "category": 6,
+            "difficulty": 3,
+            "id": 10,
+            "question": "Which is the only team to play in every soccer World Cup tournament?"
+        },
+        {
+            "answer": "Uruguay",
+            "category": 6,
+            "difficulty": 4,
+            "id": 11,
+            "question": "Which country won the first ever soccer World Cup in 1930?"
+        },
+        {
+            "answer": "George Washington Carver",
+            "category": 4,
+            "difficulty": 2,
+            "id": 12,
+            "question": "Who invented Peanut Butter?"
+        },
+        {
+            "answer": "Lake Victoria",
+            "category": 3,
+            "difficulty": 2,
+            "id": 13,
+            "question": "What is the largest lake in Africa?"
+        },
+        {
+            "answer": "The Palace of Versailles",
+            "category": 3,
+            "difficulty": 3,
+            "id": 14,
+            "question": "In which royal palace would you find the Hall of Mirrors?"
+        }
+    ],
+    "success": true,
+    "total_questions": 19
 }
 ```
 
@@ -258,39 +264,32 @@ The following errors will be reported:
 - example: `curl http://localhost:5000/api/v1/categories/1/questions -H "Content-Type: application/json"`
 ```
 {
-  "current_category": "Science", 
-  "questions": [
-    {
-      "answer": "The Liver", 
-      "category": 1, 
-      "difficulty": 4, 
-      "id": 20, 
-      "question": "What is the heaviest organ in the human body?"
-    }, 
-    {
-      "answer": "Alexander Fleming", 
-      "category": 1, 
-      "difficulty": 3, 
-      "id": 21, 
-      "question": "Who discovered penicillin?"
-    }, 
-    {
-      "answer": "Blood", 
-      "category": 1, 
-      "difficulty": 4, 
-      "id": 22, 
-      "question": "Hematology is a branch of medicine involving the study of what?"
-    }, 
-    {
-      "answer": "Me, duh!", 
-      "category": 1, 
-      "difficulty": 5, 
-      "id": 24, 
-      "question": "Who invented electricity?"
-    }
-  ], 
-  "success": true, 
-  "total_questions": 4
+    "current_category": "Geography",
+    "questions": [
+        {
+            "answer": "Lake Victoria",
+            "category": 3,
+            "difficulty": 2,
+            "id": 13,
+            "question": "What is the largest lake in Africa?"
+        },
+        {
+            "answer": "The Palace of Versailles",
+            "category": 3,
+            "difficulty": 3,
+            "id": 14,
+            "question": "In which royal palace would you find the Hall of Mirrors?"
+        },
+        {
+            "answer": "Agra",
+            "category": 3,
+            "difficulty": 2,
+            "id": 15,
+            "question": "The Taj Mahal is located in which Indian city?"
+        }
+    ],
+    "success": true,
+    "total_questions": 3
 }
 ```
 
@@ -298,10 +297,10 @@ The following errors will be reported:
 - Deletes the question by the id specified in the URL parameters.
 - Request Arguments: None
 - Returns: A dictionary that contain deleted: question_id key:value pair.
-- example: `curl -X DELETE http://localhost:5000/api/v1/questions/20 -H "Content-Type: application/json"`
+- example: `curl -X DELETE http://localhost:5000/api/v1/questions/11 -H "Content-Type: application/json"`
 ```
 {
-    "deleted": 20, 
+    "deleted": 11, 
     "success": true
 }
 ```
@@ -318,27 +317,20 @@ The following errors will be reported:
       - int:`difficulty`: Question difficulty.
       - int:`category`: question category id.
   - int:`total_questions`: an integer that contains total questions returned from the search.
-- example: `curl -X POST http://localhost:5000/api/v1/questions -H "Content-Type: application/json" -d '{"searchTerm": "title"}'`
+- example: `curl -X POST http://localhost:5000/api/v1/questions/search -H "Content-Type: application/json" -d '{"searchTerm": "movie"}'`
 ```
 {
     "questions": [
         {
-            "answer": "Maya Angelou", 
-            "category": 4, 
-            "difficulty": 2, 
-            "id": 5, 
-            "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
-        }, 
-        {
-            "answer": "Edward Scissorhands", 
+            "answer": "Apollo 13",
             "category": 5,
-            "difficulty": 3,
-            "id": 6,
-            "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
+            "difficulty": 4,
+            "id": 2,
+            "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
         }
-    ], 
-    "success": true, 
-    "total_questions": 2
+    ],
+    "success": true,
+    "total_questions": 1
 }
 ```
 
@@ -362,81 +354,81 @@ The following errors will be reported:
 - example: `curl -X POST http://localhost:5000/api/v1/questions -H "Content-Type: application/json" -d '{ "question": "What is the application used to build great python backends?", "answer": "Flask", "difficulty": 2, "category": 1}'`
 ```
 {
-    "id": 42, 
-    "question": "What is the application used to build great python backends?", 
+    "id": 26,
+    "question": "What is the application used to build great python backends?",
     "questions": [
         {
-            "answer": "Apollo 13", 
-            "category": 5, 
-            "difficulty": 4, 
-            "id": 2, 
+            "answer": "Apollo 13",
+            "category": 5,
+            "difficulty": 4,
+            "id": 2,
             "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
-        }, 
+        },
         {
-            "answer": "Tom Cruise", 
-            "category": 5, 
-            "difficulty": 4, 
-            "id": 4, 
+            "answer": "Tom Cruise",
+            "category": 5,
+            "difficulty": 4,
+            "id": 4,
             "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
-        }, 
+        },
         {
-            "answer": "Muhammad Ali", 
-            "category": 4, 
-            "difficulty": 1, 
-            "id": 9, 
+            "answer": "Maya Angelou",
+            "category": 4,
+            "difficulty": 2,
+            "id": 5,
+            "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+        },
+        {
+            "answer": "Edward Scissorhands",
+            "category": 5,
+            "difficulty": 3,
+            "id": 6,
+            "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
+        },
+        {
+            "answer": "Muhammad Ali",
+            "category": 4,
+            "difficulty": 1,
+            "id": 9,
             "question": "What boxer's original name is Cassius Clay?"
-        }, 
+        },
         {
-            "answer": "Brazil", 
-            "category": 6, 
-            "difficulty": 3, 
-            "id": 10, 
+            "answer": "Brazil",
+            "category": 6,
+            "difficulty": 3,
+            "id": 10,
             "question": "Which is the only team to play in every soccer World Cup tournament?"
-        }, 
+        },
         {
-            "answer": "Uruguay", 
-            "category": 6, 
-            "difficulty": 4, 
-            "id": 11, 
+            "answer": "Uruguay",
+            "category": 6,
+            "difficulty": 4,
+            "id": 11,
             "question": "Which country won the first ever soccer World Cup in 1930?"
-        }, 
+        },
         {
-            "answer": "George Washington Carver", 
-            "category": 4, 
-            "difficulty": 2, 
-            "id": 12, 
+            "answer": "George Washington Carver",
+            "category": 4,
+            "difficulty": 2,
+            "id": 12,
             "question": "Who invented Peanut Butter?"
-        }, 
+        },
         {
-            "answer": "Lake Victoria", 
-            "category": 3, 
-            "difficulty": 2, 
-            "id": 13, 
+            "answer": "Lake Victoria",
+            "category": 3,
+            "difficulty": 2,
+            "id": 13,
             "question": "What is the largest lake in Africa?"
-        }, 
+        },
         {
-            "answer": "The Palace of Versailles", 
-            "category": 3, 
-            "difficulty": 3, 
-            "id": 14, 
+            "answer": "The Palace of Versailles",
+            "category": 3,
+            "difficulty": 3,
+            "id": 14,
             "question": "In which royal palace would you find the Hall of Mirrors?"
-        }, 
-        {
-            "answer": "Agra", 
-            "category": 3, 
-            "difficulty": 2, 
-            "id": 15, 
-            "question": "The Taj Mahal is located in which Indian city?"
-        }, 
-        {
-            "answer": "Escher", 
-            "category": 2, 
-            "difficulty": 1, 
-            "id": 16, 
-            "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
         }
-    ], 
-    "success": true, 
+    ],
+    "success": true,
     "total_questions": 20
 }
 ```
@@ -459,19 +451,19 @@ The following errors will be reported:
       - int:`category: An integer that contains the category ID.
 - Examples:
   - request a random question with previous questions and the category "science":  
-  `curl -X POST http://localhost:5000/api/v1/quizzes -H "Content-Type: application/json" -d '{"previous_questions": [21], "quiz_category": {"type": "Science", "id": 1}}'`
+  `curl -X POST http://localhost:5000/api/v1/quizzes -H "Content-Type: application/json" -d '{"previous_questions": [19], "quiz_category": {"type": "Science", "id": 1}}'`
   - request with no previous questions, for a random question from all categories:  
   `curl -X POST http://localhost:5000/api/v1/quizzes -H "Content-Type: application/json" -d '{"previous_questions": [], "quiz_category": {"id": 0}}'`
 Sample return:
 ```
 {
     "question": {
-        "answer": "Flask", 
-        "category": 1, 
-        "difficulty": 2, 
-        "id": 42, 
-        "question": "What is the application used to build great python backends?"
-    }, 
+        "answer": "The Liver",
+        "category": 1,
+        "difficulty": 4,
+        "id": 20,
+        "question": "What is the heaviest organ in the human body?"
+    },
     "success": true
 }
 ```
